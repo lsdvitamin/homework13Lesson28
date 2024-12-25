@@ -2,6 +2,8 @@ package ru.professional.otus.homework13.lesson28.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -20,7 +22,7 @@ public class Client {
     private String name;
 
     @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-    private Set<Phone> phones;
+    private Set<Phone> phones = new HashSet<>();
 
     @OneToOne(mappedBy = "client", fetch = FetchType.LAZY)
     private Address addresses;

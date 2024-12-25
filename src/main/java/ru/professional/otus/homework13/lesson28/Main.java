@@ -60,8 +60,6 @@ public class Main {
         entityManager.persist(phone1);
         entityManager.persist(address);
 
-        //Client clientFromContext = entityManager.find(Client.class, client.getId());
-
         transaction.commit();
 
         entityManager.close();
@@ -79,8 +77,8 @@ public class Main {
                         "order by c.name_", Client.class)
                 .getResultList();
 
-        clientList.forEach(client -> LOGGER.info("Client: {}", client.getName() + ", улица " +
-                client.getAddresses().getStreet() + ", " + client.getPhones()));
+        clientList.forEach(client -> LOGGER.info("Client: {}, Street: {}, Phone: {} ", client.getName(),
+                            client.getAddresses().getStreet(), client.getPhones()));
 
 
         entityManager.close();
